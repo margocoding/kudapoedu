@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Topic from "./Topic";
+import Container from "./Container";
 
 export interface Category {
   id: number;
@@ -8,7 +9,7 @@ export interface Category {
   subcategories: { id: number; title: string; href: string }[];
 }
 
-const topics = [
+export const topics = [
   {
     id: 1,
     title: "Главное",
@@ -17,11 +18,12 @@ const topics = [
   {
     id: 2,
     title: "Новинки",
-    href: "/latest",
+    href: "/topic/latest",
   },
   {
     id: 3,
     title: "Путешествия",
+    slug: "travels",
     href: "/topic/travels",
     categories: [
       {
@@ -100,43 +102,41 @@ const topics = [
 
 export default function Header() {
   return (
-    <header
-      className={
-        "bg-linear-to-b from-[#163E91] to-[#116C86] space-y-5 py-3 space-x-3 md:px-16 px-3"
-      }
-    >
-      <div className={"flex items-center w-full justify-between"}>
-        <span className="text-4xl font-bold text-white">КудаПоеду</span>
-        <Image
-          className="max-md:hidden"
-          src="/images/test-header-banner.png"
-          alt="header advertisement banner"
-          height={200}
-          width={500}
-        />
-      </div>
-
-      <div className={"flex w-full justify-between"}>
-        <div className={"flex gap-5"}>
-          {topics.map((topic) => (
-            <Topic
-              key={topic.id}
-              title={topic.title}
-              href={topic.href}
-              categories={topic.categories}
-            />
-          ))}
+    <header className={"bg-linear-to-b from-[#163E91] to-[#116C86]"}>
+      <Container>
+        <div className={"flex items-center w-full justify-between"}>
+          <span className="text-4xl font-bold text-white">КудаПоеду</span>
+          <Image
+            className="max-md:hidden"
+            src="/images/test-header-banner.png"
+            alt="header advertisement banner"
+            height={200}
+            width={500}
+          />
         </div>
 
-        <button>
-          <Image
-            src={"/icons/search.svg"}
-            width={25}
-            height={25}
-            alt={"search"}
-          />
-        </button>
-      </div>
+        <div className={"flex w-full justify-between"}>
+          <div className={"flex gap-5"}>
+            {topics.map((topic) => (
+              <Topic
+                key={topic.id}
+                title={topic.title}
+                href={topic.href}
+                categories={topic.categories}
+              />
+            ))}
+          </div>
+
+          <button>
+            <Image
+              src={"/icons/search.svg"}
+              width={25}
+              height={25}
+              alt={"search"}
+            />
+          </button>
+        </div>
+      </Container>
     </header>
   );
 }

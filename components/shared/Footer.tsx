@@ -4,6 +4,7 @@ import NewsPost from "./NewsPost";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Link from "next/link";
+import Container from "./Container";
 
 const categories = [
   {
@@ -34,51 +35,53 @@ export default function Footer() {
 
   return (
     <footer className="text-white">
-      <header className="min-[1100px]:px-16 px-3 py-5 grid min-[1100px]:grid-cols-[1.25fr_1.25fr_1fr] items-center gap-10 bg-[#222] text-white">
-        <div>
-          <Title>Популярное</Title>
+      <header className="bg-[#222]">
+        <Container className="grid min-[1100px]:grid-cols-[1.25fr_1.25fr_1fr] items-center gap-10  text-white">
+          <div>
+            <Title>Популярное</Title>
 
-          {popular.map((item) => (
-            <NewsPost
-              key={item.id}
-              id={item.id}
-              description={item.description}
-              image={item.image}
-              title={item.title}
-              date={item.date}
-              views={item.views}
-              type="row"
-            />
-          ))}
-        </div>
-        <div>
-          <Title>Выбор редакции</Title>
+            {popular.map((item) => (
+              <NewsPost
+                key={item.id}
+                id={item.id}
+                description={item.description}
+                image={item.image}
+                title={item.title}
+                date={item.date}
+                views={item.views}
+                type="row"
+              />
+            ))}
+          </div>
+          <div>
+            <Title>Выбор редакции</Title>
 
-          {choice.map((item) => (
-            <NewsPost
-              key={item.id}
-              id={item.id}
-              description={item.description}
-              image={item.image}
-              title={item.title}
-              date={item.date}
-              views={item.views}
-              type="row"
-            />
-          ))}
-        </div>
+            {choice.map((item) => (
+              <NewsPost
+                key={item.id}
+                id={item.id}
+                description={item.description}
+                image={item.image}
+                title={item.title}
+                date={item.date}
+                views={item.views}
+                type="row"
+              />
+            ))}
+          </div>
 
-        <div className="bg-[#111] border-[#888] border space-y-3 text-center rounded-sm p-5">
-          <h1 className="font-semibold text-xl">Подпишитесь на новости</h1>
-          <h3 className="text-[#999] text-sm">
-            Получайте новейшие новости о путешествиях, новых маршрутах и горящих
-            турах
-          </h3>
+          <div className="bg-[#111] border-[#888] border space-y-3 text-center rounded-sm p-5">
+            <h1 className="font-semibold text-xl">Подпишитесь на новости</h1>
+            <h3 className="text-[#999] text-sm">
+              Получайте новейшие новости о путешествиях, новых маршрутах и
+              горящих турах
+            </h3>
 
-          <Input placeholder="Адрес электронной почты" />
+            <Input placeholder="Адрес электронной почты" />
 
-          <Button>Подписаться</Button>
-        </div>
+            <Button>Подписаться</Button>
+          </div>
+        </Container>
       </header>
 
       <main className="py-16 flex gap-5 items-center bg-[#111] flex-col justify-center">

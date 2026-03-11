@@ -5,8 +5,9 @@ import NewsCard from "@/components/shared/NewsCard";
 import Title from "@/components/ui/Title";
 import NewsPost from "@/components/shared/NewsPost";
 import RightPanel from "@/components/shared/RightPanel";
+import Container from "@/components/shared/Container";
 
-const mainNews = [
+export const mainNews = [
   {
     id: 1,
     title:
@@ -131,8 +132,8 @@ export default function Home() {
   const rightNews = mainNews.slice(3, 6);
 
   return (
-    <div className="py-5 px-16 max-[1250px]:px-3 space-y-10">
-      <div className="grid min-[1250px]:h-[85vh] grid-cols-2 max-[1250px]:grid-cols-1 gap-4">
+    <Container>
+      <div className="grid grid-cols-2 max-[1250px]:grid-cols-1 gap-4">
         <div className="grid grid-rows-2 grid-cols-2 gap-4">
           {leftNews.map((item, index) => {
             return (
@@ -256,6 +257,6 @@ export default function Home() {
 
         <RightPanel />
       </div>
-    </div>
+    </Container>
   );
 }

@@ -28,7 +28,7 @@ export default function NewsCard({
         backgroundImage: `url(${image})`,
         boxShadow: "inset 0 0 14px 1000px rgba(0,0,0,0.5)",
       }}
-      className={`bg-gray-200 h-full bg-cover bg-center gap-3 flex flex-col justify-end ${size === "sm" && "aspect-square"} md:p-6 p-3 ${className}`}
+      className={`bg-gray-200 h-full bg-cover bg-center gap-3 max-md:gap-1 flex flex-col justify-end ${size === "sm" && "aspect-square"} md:p-6 p-3 ${className}`}
     >
       <Category>{category}</Category>
       <div
