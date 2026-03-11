@@ -62,7 +62,9 @@ export default function NewsPost({
         </div>
       </div>
 
-      <div className={`line-clamp-2 ${type === "row" && "hidden"}`}>
+      <div
+        className={`line-clamp-2 ${type === "row" && "hidden"} ${size === "sm" && "text-xs"}`}
+      >
         {description}
       </div>
     </Link>
