@@ -77,7 +77,7 @@ export default function Footer() {
               горящих турах
             </h3>
 
-            <Input placeholder="Адрес электронной почты" />
+            <Input theme="dark" placeholder="Адрес электронной почты" />
 
             <Button>Подписаться</Button>
           </div>

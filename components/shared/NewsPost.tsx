@@ -49,7 +49,7 @@ export default function NewsPost({
         )}
       >
         <h2
-          className={`${size === "md" ? "text-lg line-clamp-2" : "text-xs line-clamp-3"} ${type === "column" && size === "sm" ? "h-7.5" : "h-12.5"} font-semibold line-clamp-1`}
+          className={`${size === "md" ? "text-lg line-clamp-2" : "text-xs line-clamp-3"} ${type === "column" && size === "sm" ? "h-7.5" : "h-13"} font-semibold line-clamp-1`}
         >
           {title}
         </h2>
@@ -58,7 +58,7 @@ export default function NewsPost({
           className={`flex w-full ${size === "md" ? "text-sm" : "text-xs"} gap-3 justify-between text-[#777777]`}
         >
           <div>{formatDate(date)} </div>
-          <div className="text-end">{views}</div>
+          <div className="text-end">{views} просмотров</div>
         </div>
       </div>
 

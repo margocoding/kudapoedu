@@ -22,7 +22,18 @@ export default function Comment({
             <span className="font-semibold">{name}</span>
             <span className="text-black/50">{formatDate(createdAt, true)}</span>
           </div>
-          <div className="border-b pb-3 border-[#999]">{text}</div>
+          <div>{text}</div>
+          <div className="border-b border-[#999] flex w-full justify-end">
+            <button className="border-b font-semibold pb-1 text-black/50 flex gap-1 border-[#EE5615] px-2">
+              Ответить{" "}
+              <Image
+                src="/icons/arrow-right.svg"
+                alt="arrow-right"
+                width={15}
+                height={15}
+              />
+            </button>
+          </div>
           {comments && (
             <div>
               {comments.map((comment) => (

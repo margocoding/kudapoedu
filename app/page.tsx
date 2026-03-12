@@ -150,8 +150,7 @@ export default function Home() {
             );
           })}
         </div>
-
-        <div className="grid grid-cols-2 grid-rows-2 gap-4">
+        <div className="grid grid-rows-2 grid-cols-2 gap-4">
           {rightNews.map((item, index) => {
             return (
               <NewsCard

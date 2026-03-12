@@ -14,12 +14,17 @@ export default async function TopicPage({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const { slug } = await params;
+  const { category, subcategory } = await searchParams;
 
   const foundTopic = topics.find((topic) => topic.slug === slug);
+  const foundCategory = foundTopic?.categories?.find(
+    (item) => item.href === category,
+  );
+  const foundSubcategory = foundCategory?.subcategories.find(
+    (item) => item.href === subcategory,
+  );
 
-  const currentMainNews = mainNews
-    .filter((item) => item.category === foundTopic?.title)
-    .slice(0, 3);
+  const currentMainNews = mainNews.slice(0, 3);
 
   const currentTrendNews = trendNews;
 
@@ -28,7 +33,9 @@ export default async function TopicPage({
   return (
     <Container>
       <header className="text-[#A6A6A6] font-medium text-sm">
-        Главное » {foundTopic?.title}
+        Главное » {foundTopic?.title}{" "}
+        {foundCategory &&
+          `» ${foundCategory.title} ${foundSubcategory ? `» ${foundSubcategory.title}` : ""}`}
       </header>
 
       <main>
