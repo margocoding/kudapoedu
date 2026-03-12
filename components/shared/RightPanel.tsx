@@ -88,7 +88,6 @@ export default function RightPanel() {
       <div>
         {trendNews.map((item) => (
           <NewsPost
-            size="sm"
             key={item.id}
             id={item.id}
             description={item.description}
@@ -105,7 +104,6 @@ export default function RightPanel() {
       <div>
         {trendNews.map((item) => (
           <NewsPost
-            size="sm"
             key={item.id}
             id={item.id}
             description={item.description}

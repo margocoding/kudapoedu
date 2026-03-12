@@ -32,7 +32,7 @@ export default function NewsCard({
     >
       <Category>{category}</Category>
       <div
-        className={`font-semibold text-white ${size === "lg" ? "text-2xl line-clamp-2 max-md:text-xl max-sm:text-lg" : "md:text-lg line-clamp-2"}`}
+        className={`font-semibold text-white break-all ${size === "lg" ? "text-2xl line-clamp-2" : "text-xl line-clamp-2"}`}
       >
         {title}
       </div>

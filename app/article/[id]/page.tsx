@@ -2,6 +2,7 @@ import { trendNews } from "@/app/page";
 import Container from "@/components/shared/Container";
 import NewsPost from "@/components/shared/NewsPost";
 import RightPanel from "@/components/shared/RightPanel";
+import UploadPost from "@/components/shared/UploadPost";
 import Category from "@/components/ui/Category";
 import Comment from "@/components/ui/Comment";
 import ParagraphedText from "@/components/ui/ParagraphedText";
@@ -219,6 +220,10 @@ export default async function ArticlePage({
                 />
               ))}
             </div>
+          </div>
+
+          <div>
+            <UploadPost />
           </div>
         </footer>
       </div>

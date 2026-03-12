@@ -6,7 +6,10 @@ import RightPanel from "@/components/shared/RightPanel";
 import Footer from "@/components/shared/Footer";
 
 const poppins = Poppins({
-  weight: "400",
+  weight: ["400", "500", "600"],
+  subsets: ["latin", "devanagari"],
+  display: "swap",
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased bg-[#EFEFEF] h-full`}>
+      <body className={`${poppins.variable} antialiased bg-[#EFEFEF] h-full`}>
         <Header />
         {children}
         <Footer />

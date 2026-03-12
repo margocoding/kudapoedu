@@ -48,7 +48,9 @@ export default function Topic({ title, href, categories }: Props) {
             <Category
               key={category.id}
               title={category.title}
-              categoryHref={href + category.href}
+              topicHref={href}
+              categoryHref={category.href}
+              onCloseCategories={() => setOpened(false)}
               subcategories={category.subcategories}
             />
           ))}

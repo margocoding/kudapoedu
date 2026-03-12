@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Topic from "./Topic";
 import Container from "./Container";
+import MobileHeader from "./MobileHeader";
 
 export interface Category {
   id: number;
@@ -19,6 +20,7 @@ export const topics = [
     id: 2,
     title: "Новинки",
     href: "/topic/latest",
+    slug: "latest",
   },
   {
     id: 3,
@@ -29,66 +31,66 @@ export const topics = [
       {
         id: 1,
         title: "Европа",
-        href: "/europe",
+        href: "europe",
         subcategories: [
-          { id: 1, title: "Италия", href: "/italy" },
-          { id: 2, title: "Испания", href: "/spain" },
-          { id: 3, title: "Франция", href: "/france" },
-          { id: 4, title: "Германия", href: "/germany" },
-          { id: 5, title: "Великобритания", href: "/uk" },
+          { id: 1, title: "Италия", href: "italy" },
+          { id: 2, title: "Испания", href: "spain" },
+          { id: 3, title: "Франция", href: "france" },
+          { id: 4, title: "Германия", href: "germany" },
+          { id: 5, title: "Великобритания", href: "uk" },
         ],
       },
       {
         id: 2,
         title: "Азия",
-        href: "/asia",
+        href: "asia",
         subcategories: [
-          { id: 6, title: "Япония", href: "/japan" },
-          { id: 7, title: "Индия", href: "/india" },
-          { id: 8, title: "Вьетнам", href: "/vietnam" },
-          { id: 9, title: "Южная Корея", href: "/south-korea" },
+          { id: 6, title: "Япония", href: "japan" },
+          { id: 7, title: "Индия", href: "india" },
+          { id: 8, title: "Вьетнам", href: "vietnam" },
+          { id: 9, title: "Южная Корея", href: "south-korea" },
         ],
       },
       {
         id: 3,
         title: "Северная Америка",
-        href: "/north-america",
+        href: "north-america",
         subcategories: [
-          { id: 10, title: "США", href: "/usa" },
-          { id: 11, title: "Канада", href: "/canada" },
-          { id: 12, title: "Мексика", href: "/mexico" },
+          { id: 10, title: "США", href: "usa" },
+          { id: 11, title: "Канада", href: "canada" },
+          { id: 12, title: "Мексика", href: "mexico" },
         ],
       },
       {
         id: 4,
         title: "Россия",
-        href: "/russia",
+        href: "russia",
         subcategories: [
-          { id: 13, title: "Золотое кольцо", href: "/golden-ring" },
-          { id: 14, title: "Байкал", href: "/baikal" },
-          { id: 15, title: "Камчатка", href: "/kamchatka" },
-          { id: 16, title: "Кавказ", href: "/caucasus" },
+          { id: 13, title: "Золотое кольцо", href: "golden-ring" },
+          { id: 14, title: "Байкал", href: "baikal" },
+          { id: 15, title: "Камчатка", href: "kamchatka" },
+          { id: 16, title: "Кавказ", href: "caucasus" },
         ],
       },
       {
         id: 5,
         title: "Африка",
-        href: "/africa",
+        href: "africa",
         subcategories: [
-          { id: 17, title: "Египет", href: "/egypt" },
-          { id: 18, title: "Кения", href: "/kenya" },
-          { id: 19, title: "ЮАР", href: "/south-africa" },
-          { id: 20, title: "Марокко", href: "/morocco" },
+          { id: 17, title: "Египет", href: "egypt" },
+          { id: 18, title: "Кения", href: "kenya" },
+          { id: 19, title: "ЮАР", href: "south-africa" },
+          { id: 20, title: "Марокко", href: "morocco" },
         ],
       },
       {
         id: 6,
         title: "Австралия и Океания",
-        href: "/australia-oceania",
+        href: "australia-oceania",
         subcategories: [
-          { id: 21, title: "Австралия", href: "/australia" },
-          { id: 22, title: "Новая Зеландия", href: "/new-zealand" },
-          { id: 23, title: "Фиджи", href: "/fiji" },
+          { id: 21, title: "Австралия", href: "australia" },
+          { id: 22, title: "Новая Зеландия", href: "new-zealand" },
+          { id: 23, title: "Фиджи", href: "fiji" },
         ],
       },
     ],
@@ -96,6 +98,7 @@ export const topics = [
   {
     id: 4,
     title: "Маршруты",
+    slug: "routes",
     href: "/topic/routes",
   },
 ];
@@ -113,10 +116,12 @@ export default function Header() {
             height={200}
             width={500}
           />
+
+          <MobileHeader topics={topics} />
         </div>
 
-        <div className={"flex w-full justify-between"}>
-          <div className={"flex gap-5"}>
+        <div className={"flex w-full justify-between max-md:hidden"}>
+          <div className={"flex flex-wrap gap-5"}>
             {topics.map((topic) => (
               <Topic
                 key={topic.id}
