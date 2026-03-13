@@ -173,6 +173,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-3">
             <NewsPost
+              isTrending
               key={trendNews[0].id}
               id={trendNews[0].id}
               description={trendNews[0].description}
@@ -186,6 +187,8 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-3">
                 {trendNews.slice(0, 2).map((item) => (
                   <NewsPost
+                    size="sm"
+                    isTrending
                     key={item.id}
                     id={item.id}
                     description={item.description}
@@ -198,6 +201,7 @@ export default function Home() {
               </div>
 
               <NewsPost
+                isTrending
                 type="row"
                 key={trendNews[3].id}
                 id={trendNews[3].id}
@@ -214,6 +218,7 @@ export default function Home() {
             <div className="space-y-3 grid-rows-3">
               {trendNews.slice(0, 3).map((item) => (
                 <NewsPost
+                  isTrending
                   type="row"
                   key={item.id}
                   id={item.id}
@@ -227,6 +232,7 @@ export default function Home() {
             </div>
 
             <NewsPost
+              isTrending
               key={trendNews[0].id}
               id={trendNews[0].id}
               description={trendNews[0].description}

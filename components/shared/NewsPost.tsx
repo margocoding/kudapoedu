@@ -13,6 +13,7 @@ interface Props {
   views?: number;
   type?: "column" | "row";
   className?: string;
+  isTrending?: boolean;
 }
 
 export default function NewsPost({
@@ -25,6 +26,7 @@ export default function NewsPost({
   type = "column",
   views,
   className,
+  isTrending = false,
 }: Props) {
   return (
     <Link
@@ -49,16 +51,29 @@ export default function NewsPost({
         )}
       >
         <h2
-          className={`${size === "md" ? "text-lg line-clamp-2" : "text-xs line-clamp-3"} ${type === "column" && size === "sm" ? "h-7.5" : "h-13"} font-semibold line-clamp-1`}
+          className={`${size === "md" ? "text-lg line-clamp-2" : type === "column" ? "text-md line-clamp-2" : "text-xs line-clamp-3"}  font-semibold line-clamp-1`}
         >
           {title}
         </h2>
 
         <div
-          className={`flex w-full ${size === "md" ? "text-sm" : "text-xs"} gap-3 justify-between text-[#777777]`}
+          className={`flex w-full ${size === "md" && type === "row" ? "text-md gap-3" : "text-sm gap-1"} justify-between text-[#777777]`}
         >
           <div>{formatDate(date)} </div>
-          <div className="text-end">{views} просмотров</div>
+          <div className="text-end flex gap-1">
+            {views?.toLocaleString("ru-RU")}{" "}
+            {type === "column" && size === "md" && <span>просмотров</span>}
+            {isTrending ? (
+              <Image
+                src="/icons/fire.svg"
+                height={15}
+                width={15}
+                alt="trend fire"
+              />
+            ) : (
+              <Image src="/icons/eye.svg" height={15} width={15} alt="views" />
+            )}
+          </div>
         </div>
       </div>
 
